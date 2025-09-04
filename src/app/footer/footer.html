@@ -1,0 +1,80 @@
+<footer class="bg-black text-white mt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+    <!-- Logo & Short Description -->
+    <div>
+      <a href="#" class="text-2xl font-bold text-orange-500">MediaArts</a>
+      <p class="mt-2 text-gray-300 text-sm">
+        Bringing creativity to life through motion graphics, branding, printing, and livestream services.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <!-- Button only visible on mobile -->
+      <button (click)="quickLinksOpen = !quickLinksOpen"
+              class="w-full flex justify-between items-center text-white font-semibold mb-4 md:hidden">
+        Quick Links
+        <svg class="ml-1 h-4 w-4 transition-transform duration-200"
+             [class.rotate-180]="quickLinksOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <!-- List: hidden on mobile until toggled, always visible on md+ -->
+      <ul [ngClass]="{'hidden': !quickLinksOpen, 'md:block': true}" class="space-y-2">
+        <li><a href="#home" class="hover:text-orange-500">Home</a></li>
+        <li><a href="#about" class="hover:text-orange-500">About Us</a></li>
+        <li><a href="#services" class="hover:text-orange-500">Services</a></li>
+        <li><a href="#portfolio" class="hover:text-orange-500">Portfolio</a></li>
+        <li><a href="#contact" class="hover:text-orange-500">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <button (click)="servicesFooterOpen = !servicesFooterOpen"
+              class="w-full flex justify-between items-center text-white font-semibold mb-4 md:hidden">
+        Services
+        <svg class="ml-1 h-4 w-4 transition-transform duration-200"
+             [class.rotate-180]="servicesFooterOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <ul [ngClass]="{'hidden': !servicesFooterOpen, 'md:block': true}" class="space-y-2">
+        <li><a href="#livestream" class="hover:text-orange-500">Livestream</a></li>
+        <li><a href="#motiongraphics" class="hover:text-orange-500">Motion Graphics</a></li>
+        <li><a href="#printing" class="hover:text-orange-500">Printing</a></li>
+        <li><a href="#branding" class="hover:text-orange-500">Branding</a></li>
+        <li><a href="#others" class="hover:text-orange-500">Other Creative Services</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <button (click)="contactOpen = !contactOpen"
+              class="w-full flex justify-between items-center text-white font-semibold mb-4 md:hidden">
+        Contact
+        <svg class="ml-1 h-4 w-4 transition-transform duration-200"
+             [class.rotate-180]="contactOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div [ngClass]="{'hidden': !contactOpen, 'md:block': true}" class="space-y-2 text-gray-300 text-sm">
+        <p>Phone: +233 123 456 789</p>
+        <p>Email: info@mediaarts.com</p>
+        <p>Location: Accra, Ghana</p>
+        <div class="flex space-x-4 mt-2">
+          <a href="#" class="hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-orange-500"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="border-t border-gray-800 mt-8 py-4 text-center text-gray-400 text-sm">
+    &copy; {{ currentYear }} MediaArts. All rights reserved.
+  </div>
+</footer>

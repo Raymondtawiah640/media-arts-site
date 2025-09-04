@@ -1,0 +1,98 @@
+<nav class="bg-black text-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <a href="#" class="text-2xl font-bold text-orange-500">MediaArts</a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="#home" class="hover:text-orange-500 font-medium">Home</a>
+        <a href="#about" class="hover:text-orange-500 font-medium">About Us</a>
+
+        <!-- Services Dropdown -->
+        <div class="relative" (mouseenter)="servicesOpen=true" (mouseleave)="servicesOpen=false">
+          <button class="hover:text-orange-500 font-medium flex items-center">
+            Services
+            <svg class="ml-1 h-4 w-4 transition-transform duration-200" [class.rotate-180]="servicesOpen"
+                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div *ngIf="servicesOpen"
+               class="absolute left-0 top-full mt-1 w-56 bg-black rounded shadow-lg py-2 z-50">
+            <a href="#livestream" class="block px-4 py-2 text-white hover:bg-orange-500 hover:text-black">Livestream</a>
+            <a href="#motiongraphics" class="block px-4 py-2 text-white hover:bg-orange-500 hover:text-black">Motion Graphics</a>
+            <a href="#printing" class="block px-4 py-2 text-white hover:bg-orange-500 hover:text-black">Printing</a>
+            <a href="#branding" class="block px-4 py-2 text-white hover:bg-orange-500 hover:text-black">Branding</a>
+            <a href="#others" class="block px-4 py-2 text-white hover:bg-orange-500 hover:text-black">Other Creative Services</a>
+          </div>
+        </div> <!-- ← CLOSE Services Dropdown -->
+
+        <a href="#portfolio" class="hover:text-orange-500 font-medium">Portfolio</a>
+        <a href="#blog" class="hover:text-orange-500 font-medium">Blog / News</a>
+        <a href="#contact" class="hover:text-orange-500 font-medium">Contact / Book Us</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex items-center md:hidden">
+        <button (click)="toggle = !toggle" class="focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+<!-- Slide-in Mobile Menu -->
+<div 
+     class="fixed top-0 right-0 h-full w-64 bg-black shadow-lg transform transition-transform duration-300 z-50"
+     [class.translate-x-full]="!toggle"
+     [class.translate-x-0]="toggle">
+
+  <div class="flex justify-end p-4">
+    <button (click)="toggle = false" class="text-white">
+      ✕
+    </button>
+  </div>
+
+  <nav class="flex flex-col px-4 space-y-2">
+    <a href="#home" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Home</a>
+    <a href="#about" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">About Us</a>
+
+    <!-- Mobile Services Dropdown -->
+    <div>
+      <button (click)="servicesOpen = !servicesOpen"
+              class="w-full text-left px-4 py-2 hover:bg-orange-500 hover:text-black flex justify-between items-center">
+        Services
+        <svg class="ml-1 h-4 w-4 transition-transform duration-200" [class.rotate-180]="servicesOpen"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div *ngIf="servicesOpen" class="flex flex-col bg-black">
+        <a href="#livestream" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
+        <a href="#motiongraphics" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Motion Graphics</a>
+        <a href="#printing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
+        <a href="#branding" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Branding</a>
+        <a href="#others" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Other Creative Services</a>
+      </div>
+    </div>
+
+    <a href="#portfolio" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Portfolio</a>
+    <a href="#blog" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Blog / News</a>
+    <a href="#contact" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Contact / Book Us</a>
+  </nav>
+</div>
+
+</nav>
