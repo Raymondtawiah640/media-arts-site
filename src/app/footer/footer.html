@@ -27,8 +27,8 @@
       </button>
       <!-- List: hidden on mobile until toggled, always visible on md+ -->
       <ul [ngClass]="{'hidden': !quickLinksOpen, 'md:block': true}" class="space-y-2">
-        <li><a href="#home" class="hover:text-orange-500">Home</a></li>
-        <li><a href="#about" class="hover:text-orange-500">About Us</a></li>
+        <li><a routerLink="/home" class="hover:text-orange-500">Home</a></li>
+        <li><a routerLink="/about" class="hover:text-orange-500">About Us</a></li>
         <li><a href="#services" class="hover:text-orange-500">Services</a></li>
         <li><a href="#portfolio" class="hover:text-orange-500">Portfolio</a></li>
         <li><a href="#contact" class="hover:text-orange-500">Contact</a></li>
@@ -85,6 +85,6 @@
   </div>
 
   <div class="border-t border-gray-800 mt-8 py-4 text-center text-gray-400 text-sm">
-    &copy; {{ currentYear }} MediaArts. All rights reserved.
+    &copy; {{ currentYear }} Right Media Productions. All rights reserved.
   </div>
 </footer>

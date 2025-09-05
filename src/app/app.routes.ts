@@ -1,10 +1,35 @@
 import { Routes } from '@angular/router';
 import { Home} from './home/home';
+import { About } from './about/about';
+import { Branding } from './categories/branding/branding';
+import { MotionGraphics } from './categories/motion-graphics/motion-graphics';
+import { Printing } from './categories/printing/printing';
+import { TShirtPrinting } from './categories/t-shirt-printing/t-shirt-printing';
+import { VideoProductionAndPhotoEditing } from './categories/video-production-and-photo-editing/video-production-and-photo-editing';
+import { Streaming } from './categories/others/streaming/streaming';
+import { PictureFraming } from './categories/others/picture-framing/picture-framing';
+import { OnlineAdvertisement } from './categories/others/online-advertisement/online-advertisement';
+import { SoundEngineering } from './categories/others/sound-engineering/sound-engineering';
+import { Portfolio } from './categories/portfolio/portfolio';
+import { Blog } from './categories/blog/blog';
+import { Contact } from './categories/contact/contact';
 
 export const routes: Routes = [
   { path: '', component: Home },  // default route
   { path: 'home', component: Home}, 
+  { path: 'about', component: About},
+  {path: 'branding', component: Branding},
+  {path: 'MotionGraphics', component: MotionGraphics},
+  {path: 'Printing', component: Printing},
+  {path: 'T-ShirtPrinting', component: TShirtPrinting},
+  {path: 'VideoProductionAndPhotoEditing', component: VideoProductionAndPhotoEditing},
+  {path: 'Streaming', component: Streaming},
+  {path: 'PictureFraming', component: PictureFraming},
+  {path: 'OnlineAdvertisement', component: OnlineAdvertisement},
+  {path: 'SoundEngineering', component: SoundEngineering},
+  {path: 'Portfolio', component: Portfolio},
+  {path: 'Blog', component: Blog},
+  {path: 'Contact', component: Contact},
   { path: '**', redirectTo: '', pathMatch: 'full' }
-// optional, same as default
-  // Add other routes here if needed, e.g. about, services, contact
+
 ];

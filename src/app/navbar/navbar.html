@@ -9,8 +9,8 @@
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-6 items-center">
-        <a href="#home" class="hover:text-orange-500 font-medium">Home</a>
-        <a href="#about" class="hover:text-orange-500 font-medium">About Us</a>
+        <a routerLink="/home" class="hover:text-orange-500 font-medium">Home</a>
+        <a routerLink="/about" class="hover:text-orange-500 font-medium">About Us</a>
 
         <!-- Services Dropdown -->
         <div class="relative" (mouseenter)="servicesOpen=true" (mouseleave)="servicesOpen=false">
@@ -26,17 +26,25 @@
 
           <div *ngIf="servicesOpen"
                class="absolute left-0 top-full mt-1 w-56 bg-black rounded shadow-lg py-2 z-50">
-            <a href="#livestream" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
-            <a href="#motiongraphics" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Motion Graphics</a>
-            <a href="#printing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
-            <a href="#branding" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Branding</a>
-            <a href="#others" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Other Creative Services</a>
+            <a routerLink="/branding" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
+            <a routerLink="/MotionGraphics" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Motion Graphics</a>
+            <a routerLink="/Printing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
+            <a routerLink="/T-ShirtPrinting" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">T-Shirt Printing</a>
+            <a routerLink="/VideoProductionAndPhotoEditing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Video Production & Photo Editing</a>
+
+            <!-- Other Creative Services Dropdown -->
+            <div class="border-t border-gray-700 mt-1">
+              <a routerLink="/Streaming" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Streaming</a>
+              <a routerLink="/PictureFraming" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Picture Framing</a>
+              <a routerLink="/OnlineAdvertisement" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Online Advertisement</a>
+              <a routerLink="/SoundEngineering" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Sound Engineering</a>
+            </div>
           </div>
         </div>
 
-        <a href="#portfolio" class="hover:text-orange-500 font-medium">Portfolio</a>
-        <a href="#blog" class="hover:text-orange-500 font-medium">Blog / News</a>
-        <a href="#contact" class="hover:text-orange-500 font-medium">Contact / Book Us</a>
+        <a routerLink="/portfolio" class="hover:text-orange-500 font-medium">Portfolio</a>
+        <a routerLink="/blog" class="hover:text-orange-500 font-medium">Blog / News</a>
+        <a routerLink="/contact" class="hover:text-orange-500 font-medium">Contact / Book Us</a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -72,8 +80,8 @@
     </div>
 
     <nav class="flex flex-col px-4 space-y-2">
-      <a href="#home" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Home</a>
-      <a href="#about" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">About Us</a>
+      <a routerLink="/home" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Home</a>
+      <a routerLink="/about" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">About Us</a>
 
       <!-- Mobile Services Dropdown -->
       <div>
@@ -88,17 +96,25 @@
         </button>
 
         <div *ngIf="servicesOpen" class="flex flex-col bg-black">
-          <a href="#livestream" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
-          <a href="#motiongraphics" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Motion Graphics</a>
-          <a href="#printing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
-          <a href="#branding" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Branding</a>
-          <a href="#others" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Other Creative Services</a>
+          <a routerLink="/branding" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
+          <a routerLink="/MotionGraphics" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Motion Graphics</a>
+          <a routerLink="/Printing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
+          <a routerLink="/T-ShirtPrinting" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">T-Shirt Printing</a>
+          <a routerLink="/VideoProductionAndPhotoEditing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Video Production & Photo Editing</a>
+
+          <!-- Other Creative Services -->
+          <div class="border-t border-gray-700 mt-1">
+            <a routerLink="/Streaming" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Streaming</a>
+            <a routerLink="/PictureFraming" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Picture Framing</a>
+            <a routerLink="/OnlineAdvertisement" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Online Advertisement</a>
+            <a routerLink="/SoundEngineering" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Sound Engineering</a>
+          </div>
         </div>
       </div>
 
-      <a href="#portfolio" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Portfolio</a>
-      <a href="#blog" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Blog / News</a>
-      <a href="#contact" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Contact / Book Us</a>
+      <a routerLink="/Portfolio" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Portfolio</a>
+      <a routerLink="/Blog" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Blog / News</a>
+      <a routerLink="/Contact" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Contact / Book Us</a>
     </nav>
   </div>
 </nav>
