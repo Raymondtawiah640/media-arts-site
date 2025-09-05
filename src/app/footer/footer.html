@@ -16,7 +16,6 @@
 
     <!-- Quick Links -->
     <div>
-      <!-- Button only visible on mobile -->
       <button (click)="quickLinksOpen = !quickLinksOpen"
               class="w-full flex justify-between items-center text-white font-semibold mb-4 md:hidden">
         Quick Links
@@ -25,13 +24,11 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      <!-- List: hidden on mobile until toggled, always visible on md+ -->
       <ul [ngClass]="{'hidden': !quickLinksOpen, 'md:block': true}" class="space-y-2">
         <li><a routerLink="/home" class="hover:text-orange-500">Home</a></li>
         <li><a routerLink="/about" class="hover:text-orange-500">About Us</a></li>
-        <li><a href="#services" class="hover:text-orange-500">Services</a></li>
-        <li><a href="#portfolio" class="hover:text-orange-500">Portfolio</a></li>
-        <li><a href="#contact" class="hover:text-orange-500">Contact</a></li>
+        <li><a routerLink="/Portfolio" class="hover:text-orange-500">Portfolio</a></li>
+        <li><a routerLink="/Contact" class="hover:text-orange-500">Contact</a></li>
       </ul>
     </div>
 
@@ -46,15 +43,14 @@
         </svg>
       </button>
       <ul [ngClass]="{'hidden': !servicesFooterOpen, 'md:block': true}" class="space-y-2">
-        <li><a href="#livestream" class="hover:text-orange-500">Livestream</a></li>
-        <li><a href="#motiongraphics" class="hover:text-orange-500">Motion Graphics</a></li>
-        <li><a href="#printing" class="hover:text-orange-500">Printing</a></li>
-        <li><a href="#branding" class="hover:text-orange-500">Branding</a></li>
-        <li><a href="#others" class="hover:text-orange-500">Other Creative Services</a></li>
+        <li><a routerLink="/Streaming" class="hover:text-orange-500">Streaming</a></li>
+        <li><a routerLink="/PictureFraming" class="hover:text-orange-500">Picture Framing</a></li>
+        <li><a routerLink="/OnlineAdvertisement" class="hover:text-orange-500">Online Advertisement</a></li>
+        <li><a routerLink="/SoundEngineering" class="hover:text-orange-500">Sound Engineering</a></li>
       </ul>
     </div>
 
-    <!-- Contact Info -->
+    <!-- Contact Info & Social Media -->
     <div>
       <button (click)="contactOpen = !contactOpen"
               class="w-full flex justify-between items-center text-white font-semibold mb-4 md:hidden">
@@ -65,20 +61,23 @@
         </svg>
       </button>
       <div [ngClass]="{'hidden': !contactOpen, 'md:block': true}" class="space-y-2 text-gray-300 text-sm">
-        <p>Phone: +233 53  983 5369</p>
-        <p>Email:  seniorgyekye123@gmail.com</p>
+        <p>Phone: +233 53 983 5369</p>
+        <p>Email: seniorgyekye123@gmail.com</p>
         <p>Location: KOFORIDUA AGAVENYA, EASTERN REGION</p>
         <div class="flex space-x-4 mt-2">
-        <a href="#" class="hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="hover:text-orange-500"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="hover:text-orange-500"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
-        <!-- WhatsApp icon -->
-        <a href="https://wa.me/233535800335?text=Hello%20MediaArts!" target="_blank" class="hover:text-green-500">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </div>
-
+          <a href="https://www.instagram.com/official_right-media" target="_blank" class="hover:text-orange-500">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@rightmediaproductions21" target="_blank" class="hover:text-orange-500">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.facebook.com/RightMediaProductions" target="_blank" class="hover:text-orange-500">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/233535800335?text=Hello%20MediaArts!" target="_blank" class="hover:text-green-500">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
       </div>
     </div>
 

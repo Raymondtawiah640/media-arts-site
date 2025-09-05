@@ -1,45 +1,54 @@
-<!-- motion-graphics.html -->
 <section class="py-16 bg-gray-900 text-white px-4 md:px-0">
   <div class="max-w-7xl mx-auto text-center mb-12">
     <h2 class="text-4xl md:text-5xl font-bold text-orange-500 mb-4">
       Motion Graphics Projects
     </h2>
     <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-      Check out some of our creative animations and motion graphics that bring ideas to life.
+      Check out some of our creative animations, videos, and images that bring ideas to life.
     </p>
   </div>
 
-  <!-- Motion Graphics Grid -->
+  <!-- Gallery Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition transform">
-      <video autoplay loop muted playsinline class="w-full h-64 object-cover">
-        <source src="assets/motion1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="p-4 text-center">
-        <h3 class="text-lg font-bold text-orange-500">Product Promo Animation</h3>
-        <p class="text-gray-300 text-sm">A dynamic animation showcasing a product launch.</p>
-      </div>
-    </div>
+    <!-- Loop through media -->
+    <div *ngFor="let media of mediaItems"
+         class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition transform cursor-pointer"
+         (click)="media.type==='image' ? openImage(media.src) : null">
 
-    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition transform">
-      <video autoplay loop muted playsinline class="w-full h-64 object-cover">
-        <source src="assets/motion2.mp4" type="video/mp4">
-      </video>
-      <div class="p-4 text-center">
-        <h3 class="text-lg font-bold text-orange-500">Social Media Animation</h3>
-        <p class="text-gray-300 text-sm">Engaging visuals created for digital marketing campaigns.</p>
-      </div>
-    </div>
+      <!-- Video -->
+      <ng-container *ngIf="media.type==='video'">
+        <video autoplay loop muted playsinline class="w-full h-64 object-cover">
+          <source [src]="media.src" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </ng-container>
 
-    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition transform">
-      <video autoplay loop muted playsinline class="w-full h-64 object-cover">
-        <source src="assets/motion3.mp4" type="video/mp4">
-      </video>
+      <!-- Image -->
+      <ng-container *ngIf="media.type==='image'">
+        <img [src]="media.src" [alt]="media.title" class="w-full h-64 object-cover">
+      </ng-container>
+
       <div class="p-4 text-center">
-        <h3 class="text-lg font-bold text-orange-500">Logo Animation</h3>
-        <p class="text-gray-300 text-sm">Animated brand logos that leave a lasting impression.</p>
+        <h3 class="text-lg font-bold text-orange-500">{{ media.title }}</h3>
+        <p class="text-gray-300 text-sm">{{ media.description }}</p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Lightbox Modal -->
+<div *ngIf="selectedImage"
+     class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+     (click)="closeImage()">
+
+  <!-- Close Button -->
+  <button class="absolute top-5 right-5 text-white text-3xl font-bold hover:text-gray-300 cursor-pointer"
+          (click)="closeImage(); $event.stopPropagation()">
+    &times;
+  </button>
+
+  <img [src]="selectedImage"
+       alt="Enlarged Motion Graphic"
+       class="w-full max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl max-h-[80vh] rounded-lg shadow-lg"
+       (click)="$event.stopPropagation()">
+</div>
