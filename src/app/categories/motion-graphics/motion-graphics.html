@@ -1,7 +1,7 @@
 <section class="py-16 bg-gray-900 text-white px-4 md:px-0">
   <div class="max-w-7xl mx-auto text-center mb-12">
     <h2 class="text-4xl md:text-5xl font-bold text-orange-500 mb-4">
-      Motion Graphics Projects
+      Graphic Design Projects
     </h2>
     <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
       Check out some of our creative animations, videos, and images that bring ideas to life.
@@ -36,6 +36,57 @@
   </div>
 </section>
 
+<!-- Event Pictures Section -->
+<section class="py-16 bg-gray-900 text-white px-4 md:px-0">
+  <div class="max-w-7xl mx-auto text-center mb-12">
+    <h2 class="text-4xl md:text-5xl font-bold text-orange-500 mb-4">
+      Event Pictures
+    </h2>
+    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
+      Highlights from our recent events, workshops, and conferences.
+    </p>
+  </div>
+
+  <!-- Event Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div *ngFor="let event of eventItems"
+         class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition transform cursor-pointer"
+         (click)="openImage(event.src)">
+      <img [src]="event.src" [alt]="event.title" class="w-full h-64 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-bold text-orange-500">{{ event.title }}</h3>
+        <p class="text-gray-300 text-sm">{{ event.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Labels Section -->
+<section class="py-16 bg-gray-900 text-white px-4 md:px-0">
+  <div class="max-w-7xl mx-auto text-center mb-12">
+    <h2 class="text-4xl md:text-5xl font-bold text-orange-500 mb-4">
+      Labels
+    </h2>
+    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
+      Explore the custom labels we’ve designed for our clients, showcasing creativity and branding excellence.
+    </p>
+  </div>
+
+  <!-- Labels Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div *ngFor="let label of labelItems"
+         class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition transform cursor-pointer"
+         (click)="openImage(label.src)">
+      <img [src]="label.src" [alt]="label.title" class="w-full h-64 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-bold text-orange-500">{{ label.title }}</h3>
+        <p class="text-gray-300 text-sm">{{ label.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- Lightbox Modal -->
 <div *ngIf="selectedImage"
      class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
@@ -48,7 +99,7 @@
   </button>
 
   <img [src]="selectedImage"
-       alt="Enlarged Motion Graphic"
+       alt="Enlarged Picture"
        class="w-full max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl max-h-[80vh] rounded-lg shadow-lg"
        (click)="$event.stopPropagation()">
 </div>

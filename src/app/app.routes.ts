@@ -19,7 +19,7 @@ export const routes: Routes = [
   { path: 'home', component: Home}, 
   { path: 'about', component: About},
   {path: 'branding', component: Branding},
-  {path: 'MotionGraphics', component: MotionGraphics},
+  {path: 'Graphics', component: MotionGraphics},
   {path: 'Printing', component: Printing},
   {path: 'T-ShirtPrinting', component: TShirtPrinting},
   {path: 'VideoProductionAndPhotoEditing', component: VideoProductionAndPhotoEditing},

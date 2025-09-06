@@ -63,11 +63,25 @@ export class MotionGraphics {
     },
     {
       type: 'image',
-      src: 'motion6.jpg',
+      src: 'assets/motion7.jpg',
       title: 'Event Promotion Graphic',
       description: 'Visual graphics promoting events and launches.'
     }
   ];
+
+  eventItems = [
+  { src: 'event1.jpg', title: 'Event 1', description: 'Highlights from Event 1' },
+  { src: 'event2.jpg', title: 'Event 2', description: 'Highlights from Event 2' },
+  { src: 'assets/event3.jpg', title: 'Event 3', description: 'Highlights from Event 3' },
+  // add more events here
+];
+
+  labelItems = [
+  { src: 'label1.jpg', title: 'Label 1', description: 'Custom Label Design 1' },
+  { src: 'assets/label2.jpg', title: 'Label 2', description: 'Custom Label Design 2' },
+  { src: 'assets/label3.jpg', title: 'Label 3', description: 'Custom Label Design 3' },
+  // Add more labels here
+];
 
   openImage(image: string) {
     this.selectedImage = image;
