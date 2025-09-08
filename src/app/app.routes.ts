@@ -13,6 +13,7 @@ import { SoundEngineering } from './categories/others/sound-engineering/sound-en
 import { Portfolio } from './categories/portfolio/portfolio';
 import { Blog } from './categories/blog/blog';
 import { Contact } from './categories/contact/contact';
+import { Auth } from './auth/auth';
 
 export const routes: Routes = [
   { path: '', component: Home },  // default route
@@ -30,6 +31,7 @@ export const routes: Routes = [
   {path: 'Portfolio', component: Portfolio},
   {path: 'Blog', component: Blog},
   {path: 'Contact', component: Contact},
+  {path: 'auth', component: Auth},
   { path: '**', redirectTo: '', pathMatch: 'full' }
 
 ];

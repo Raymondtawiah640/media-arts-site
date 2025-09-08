@@ -1,0 +1,64 @@
+<div class="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 md:px-0">
+
+  <!-- Logo -->
+  <div class="mb-8">
+    <img src="logo.jpg" alt="MediaArts Logo" class="h-24 md:h-32 mx-auto">
+  </div>
+
+  <!-- Tab Links -->
+  <div class="flex gap-6 mb-8 text-lg font-semibold border-b border-gray-700">
+    <button (click)="selectTab('login')"
+            [class.text-orange-500]="activeTab === 'login'"
+            [class.text-white]="activeTab !== 'login'"
+            class="pb-2 transition border-b-2"
+            [class.border-orange-500]="activeTab === 'login'"
+            [class.border-transparent]="activeTab !== 'login'">
+      Login
+    </button>
+    <button (click)="selectTab('signup')"
+            [class.text-orange-500]="activeTab === 'signup'"
+            [class.text-white]="activeTab !== 'signup'"
+            class="pb-2 transition border-b-2"
+            [class.border-orange-500]="activeTab === 'signup'"
+            [class.border-transparent]="activeTab !== 'signup'">
+      Sign Up
+    </button>
+  </div>
+
+  <!-- Forms Container -->
+  <div class="w-full max-w-md">
+
+    <!-- Login Form -->
+    <form *ngIf="activeTab === 'login'" 
+          class="flex flex-col gap-4 p-6 bg-gray-900 rounded-lg border border-gray-700"
+          (ngSubmit)="onLogin()">
+      <h2 class="text-2xl font-bold text-orange-500 text-center">Login</h2>
+      <input type="email" [(ngModel)]="loginEmail" name="loginEmail" placeholder="Email" 
+             class="p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-orange-500" required>
+      <input type="password" [(ngModel)]="loginPassword" name="loginPassword" placeholder="Password" 
+             class="p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-orange-500" required>
+      <button type="submit" 
+              class="bg-orange-500 hover:bg-orange-600 text-black font-semibold py-3 rounded-md transition">
+        Login
+      </button>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form *ngIf="activeTab === 'signup'" 
+          class="flex flex-col gap-4 p-6 bg-gray-900 rounded-lg border border-gray-700"
+          (ngSubmit)="onSignup()">
+      <h2 class="text-2xl font-bold text-orange-500 text-center">Sign Up</h2>
+      <input type="text" [(ngModel)]="signupUsername" name="signupUsername" placeholder="Username" 
+             class="p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-orange-500" required>
+      <input type="email" [(ngModel)]="signupEmail" name="signupEmail" placeholder="Email" 
+             class="p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-orange-500" required>
+      <input type="password" [(ngModel)]="signupPassword" name="signupPassword" placeholder="Password" 
+             class="p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-orange-500" required>
+      <button type="submit" 
+              class="bg-orange-500 hover:bg-orange-600 text-black font-semibold py-3 rounded-md transition">
+        Sign Up
+      </button>
+    </form>
+
+  </div>
+</div>

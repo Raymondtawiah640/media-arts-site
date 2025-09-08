@@ -9,12 +9,12 @@
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-6 items-center">
-        <a routerLink="/home" class="hover:text-orange-500 font-medium">Home</a>
-        <a routerLink="/about" class="hover:text-orange-500 font-medium">About Us</a>
+        <a routerLink="/home" (click)="auth($event, '/home')" class="hover:text-orange-500 font-medium">Home</a>
+        <a routerLink="/about" (click)="auth($event, '/about')" class="hover:text-orange-500 font-medium">About Us</a>
 
         <!-- Services Dropdown -->
         <div class="relative" (mouseenter)="servicesOpen=true" (mouseleave)="servicesOpen=false">
-          <button class="hover:text-orange-500 font-medium flex items-center">
+          <button type="button" class="hover:text-orange-500 font-medium flex items-center">
             Services
             <svg class="ml-1 h-4 w-4 transition-transform duration-200"
                  [class.rotate-180]="servicesOpen"
@@ -26,95 +26,78 @@
 
           <div *ngIf="servicesOpen"
                class="absolute left-0 top-full mt-1 w-56 bg-black rounded shadow-lg py-2 z-50">
-            <a routerLink="/branding" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
-            <a routerLink="/Graphics" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Graphic Design</a>
-            <a routerLink="/Printing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
-            <a routerLink="/T-ShirtPrinting" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">T-Shirt Printing</a>
-            <a routerLink="/VideoProductionAndPhotoEditing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Video Production & Photo Editing</a>
+            <a routerLink="/branding" (click)="auth($event, '/branding')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
+            <a routerLink="/Graphics" (click)="auth($event, '/Graphics')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Graphic Design</a>
+            <a routerLink="/Printing" (click)="auth($event, '/Printing')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
+            <a routerLink="/T-ShirtPrinting" (click)="auth($event, '/T-ShirtPrinting')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">T-Shirt Printing</a>
+            <a routerLink="/VideoProductionAndPhotoEditing" (click)="auth($event, '/VideoProductionAndPhotoEditing')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Video Production & Photo Editing</a>
 
             <!-- Other Creative Services Dropdown -->
             <div class="border-t border-gray-700 mt-1">
-              <a routerLink="/Streaming" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Streaming</a>
-              <a routerLink="/PictureFraming" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Picture Framing</a>
-              <a routerLink="/OnlineAdvertisement" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Online Advertisement</a>
-              <a routerLink="/SoundEngineering" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Sound Engineering</a>
+              <a routerLink="/Streaming" (click)="auth($event, '/Streaming')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Streaming</a>
+              <a routerLink="/PictureFraming" (click)="auth($event, '/PictureFraming')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Picture Framing</a>
+              <a routerLink="/OnlineAdvertisement" (click)="auth($event, '/OnlineAdvertisement')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Online Advertisement</a>
+              <a routerLink="/SoundEngineering" (click)="auth($event, '/SoundEngineering')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Sound Engineering</a>
             </div>
           </div>
         </div>
 
-        <a routerLink="/Portfolio" class="hover:text-orange-500 font-medium">Portfolio</a>
-        <a routerLink="/Blog" class="hover:text-orange-500 font-medium">Blog / News</a>
-        <a routerLink="/Contact" class="hover:text-orange-500 font-medium">Contact / Book Us</a>
+        <a routerLink="/Portfolio" (click)="auth($event, '/Portfolio')" class="hover:text-orange-500 font-medium">Portfolio</a>
+        <a routerLink="/Blog" (click)="auth($event, '/Blog')" class="hover:text-orange-500 font-medium">Blog / News</a>
+        <a routerLink="/Contact" (click)="auth($event, '/Contact')" class="hover:text-orange-500 font-medium">Contact / Book Us</a>
+        <a routerLink="/auth" (click)="auth($event, '/auth')" class="hover:text-orange-500 font-medium">Login / Sign Up</a>
       </div>
 
       <!-- Mobile Menu Button -->
-      <div class="flex items-center md:hidden">
-        <button (click)="toggle = !toggle" class="focus:outline-none">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
+<div 
+  class="fixed top-0 right-0 h-full w-64 bg-black shadow-lg transform transition-transform duration-300 z-50"
+  [class.translate-x-full]="!toggle"
+  [class.translate-x-0]="toggle">
 
-    </div>
+  <div class="flex justify-end p-4">
+    <button (click)="toggle = false" class="text-white">
+      ✕
+    </button>
   </div>
 
-  <!-- Backdrop (click outside to close) -->
-  <div 
-    *ngIf="toggle"
-    class="fixed inset-0 bg-black bg-opacity-50 z-40"
-    (click)="toggle = false">
-  </div>
+  <nav class="flex flex-col px-4 space-y-2">
+    <a routerLink="/home" (click)="auth($event, '/home')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Home</a>
+    <a routerLink="/about" (click)="auth($event, '/about')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">About Us</a>
 
-  <!-- Slide-in Mobile Menu -->
-  <div 
-    class="fixed top-0 right-0 h-full w-64 bg-black shadow-lg transform transition-transform duration-300 z-50"
-    [class.translate-x-full]="!toggle"
-    [class.translate-x-0]="toggle">
-
-    <div class="flex justify-end p-4">
-      <button (click)="toggle = false" class="text-white">
-        ✕
+    <!-- Mobile Services Dropdown -->
+    <div>
+      <button (click)="servicesOpen = !servicesOpen"
+              class="w-full text-left px-4 py-2 hover:bg-orange-500 hover:text-black flex justify-between items-center">
+        Services
+        <svg class="ml-1 h-4 w-4 transition-transform duration-200" [class.rotate-180]="servicesOpen"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 9l-7 7-7-7" />
+        </svg>
       </button>
-    </div>
 
-    <nav class="flex flex-col px-4 space-y-2">
-      <a routerLink="/home" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Home</a>
-      <a routerLink="/about" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">About Us</a>
+      <div *ngIf="servicesOpen" class="flex flex-col bg-black">
+        <a routerLink="/branding" (click)="auth($event, '/branding')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
+        <a routerLink="/Graphics" (click)="auth($event, '/Graphics')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Graphics Design</a>
+        <a routerLink="/Printing" (click)="auth($event, '/Printing')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
+        <a routerLink="/T-ShirtPrinting" (click)="auth($event, '/T-ShirtPrinting')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">T-Shirt Printing</a>
+        <a routerLink="/VideoProductionAndPhotoEditing" (click)="auth($event, '/VideoProductionAndPhotoEditing')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Video Production & Photo Editing</a>
 
-      <!-- Mobile Services Dropdown -->
-      <div>
-        <button (click)="servicesOpen = !servicesOpen"
-                class="w-full text-left px-4 py-2 hover:bg-orange-500 hover:text-black flex justify-between items-center">
-          Services
-          <svg class="ml-1 h-4 w-4 transition-transform duration-200" [class.rotate-180]="servicesOpen"
-               fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-
-        <div *ngIf="servicesOpen" class="flex flex-col bg-black">
-          <a routerLink="/branding" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
-          <a routerLink="/Graphics" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Graphics Design</a>
-          <a routerLink="/Printing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
-          <a routerLink="/T-ShirtPrinting" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">T-Shirt Printing</a>
-          <a routerLink="/VideoProductionAndPhotoEditing" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Video Production & Photo Editing</a>
-
-          <!-- Other Creative Services -->
-          <div class="border-t border-gray-700 mt-1">
-            <a routerLink="/Streaming" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Streaming</a>
-            <a routerLink="/PictureFraming" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Picture Framing</a>
-            <a routerLink="/OnlineAdvertisement" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Online Advertisement</a>
-            <a routerLink="/SoundEngineering" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Sound Engineering</a>
-          </div>
+        <!-- Other Creative Services -->
+        <div class="border-t border-gray-700 mt-1">
+          <a routerLink="/Streaming" (click)="auth($event, '/Streaming')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Streaming</a>
+          <a routerLink="/PictureFraming" (click)="auth($event, '/PictureFraming')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Picture Framing</a>
+          <a routerLink="/OnlineAdvertisement" (click)="auth($event, '/OnlineAdvertisement')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Online Advertisement</a>
+          <a routerLink="/SoundEngineering" (click)="auth($event, '/SoundEngineering')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Sound Engineering</a>
         </div>
       </div>
+    </div>
 
-      <a routerLink="/Portfolio" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Portfolio</a>
-      <a routerLink="/Blog" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Blog / News</a>
-      <a routerLink="/Contact" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Contact / Book Us</a>
-    </nav>
-  </div>
-</nav>
+    <a routerLink="/Portfolio" (click)="auth($event, '/Portfolio')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Portfolio</a>
+    <a routerLink="/Blog" (click)="auth($event, '/Blog')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Blog / News</a>
+    <a routerLink="/Contact" (click)="auth($event, '/Contact')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Contact / Book Us</a>
+
+    <!-- ✅ Login / Sign Up link added -->
+    <a routerLink="/auth" (click)="auth($event, '/auth')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black font-medium">Login / Sign Up</a>
+  </nav>
+</div>
