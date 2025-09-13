@@ -21,16 +21,6 @@ export class Navbar {
   }
 
   auth(event: Event, path?: string) {
-    event.preventDefault();
-    const isLoggedIn = !!localStorage.getItem('token');
-
-    if (isLoggedIn && path) {
-      this.router.navigate([path]);
-      this.closeMenu();
-    } else if (!isLoggedIn) {
-      alert('You must log in first!');
-      this.router.navigate(['/auth']); // ✅ Correct route from your config
-      this.closeMenu();
-    }
+    
   }
 }

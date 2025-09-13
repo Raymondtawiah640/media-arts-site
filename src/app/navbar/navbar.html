@@ -4,7 +4,7 @@
 
       <!-- Logo -->
       <div class="flex-shrink-0 flex items-center">
-        <a href="#" class="text-2xl font-bold text-orange-500">Right Media Production</a>
+        <a routerLink="/home" class="text-2xl font-bold text-orange-500">Right Media Production</a>
       </div>
 
       <!-- Desktop Menu -->
@@ -12,7 +12,7 @@
         <a routerLink="/home" (click)="auth($event, '/home')" class="hover:text-orange-500 font-medium">Home</a>
         <a routerLink="/about" (click)="auth($event, '/about')" class="hover:text-orange-500 font-medium">About Us</a>
 
-        <!-- Services Dropdown -->
+        <!-- Services Dropdown (desktop only) -->
         <div class="relative" (mouseenter)="servicesOpen=true" (mouseleave)="servicesOpen=false">
           <button type="button" class="hover:text-orange-500 font-medium flex items-center">
             Services
@@ -31,8 +31,6 @@
             <a routerLink="/Printing" (click)="auth($event, '/Printing')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
             <a routerLink="/T-ShirtPrinting" (click)="auth($event, '/T-ShirtPrinting')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">T-Shirt Printing</a>
             <a routerLink="/VideoProductionAndPhotoEditing" (click)="auth($event, '/VideoProductionAndPhotoEditing')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Video Production & Photo Editing</a>
-
-            <!-- Other Creative Services Dropdown -->
             <div class="border-t border-gray-700 mt-1">
               <a routerLink="/Streaming" (click)="auth($event, '/Streaming')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Streaming</a>
               <a routerLink="/PictureFraming" (click)="auth($event, '/PictureFraming')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Picture Framing</a>
@@ -48,56 +46,43 @@
         <a routerLink="/auth" (click)="auth($event, '/auth')" class="hover:text-orange-500 font-medium">Login / Sign Up</a>
       </div>
 
-      <!-- Mobile Menu Button -->
-<div 
-  class="fixed top-0 right-0 h-full w-64 bg-black shadow-lg transform transition-transform duration-300 z-50"
-  [class.translate-x-full]="!toggle"
-  [class.translate-x-0]="toggle">
-
-  <div class="flex justify-end p-4">
-    <button (click)="toggle = false" class="text-white">
-      ✕
-    </button>
-  </div>
-
-  <nav class="flex flex-col px-4 space-y-2">
-    <a routerLink="/home" (click)="auth($event, '/home')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Home</a>
-    <a routerLink="/about" (click)="auth($event, '/about')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">About Us</a>
-
-    <!-- Mobile Services Dropdown -->
-    <div>
-      <button (click)="servicesOpen = !servicesOpen"
-              class="w-full text-left px-4 py-2 hover:bg-orange-500 hover:text-black flex justify-between items-center">
-        Services
-        <svg class="ml-1 h-4 w-4 transition-transform duration-200" [class.rotate-180]="servicesOpen"
-             fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7" />
-        </svg>
+      <!-- Hamburger button (mobile only) -->
+      <button class="md:hidden text-white text-2xl" (click)="toggle = !toggle" aria-label="Toggle menu">
+        ☰
       </button>
+    </div>
+  </div>
+</nav>
 
-      <div *ngIf="servicesOpen" class="flex flex-col bg-black">
-        <a routerLink="/branding" (click)="auth($event, '/branding')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Livestream</a>
-        <a routerLink="/Graphics" (click)="auth($event, '/Graphics')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Graphics Design</a>
-        <a routerLink="/Printing" (click)="auth($event, '/Printing')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Printing</a>
-        <a routerLink="/T-ShirtPrinting" (click)="auth($event, '/T-ShirtPrinting')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">T-Shirt Printing</a>
-        <a routerLink="/VideoProductionAndPhotoEditing" (click)="auth($event, '/VideoProductionAndPhotoEditing')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Video Production & Photo Editing</a>
+<!-- Mobile Menu -->
+<div *ngIf="toggle" class="fixed inset-0 z-[9999] flex items-center justify-center">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-black bg-opacity-80" (click)="toggle = false"></div>
 
-        <!-- Other Creative Services -->
-        <div class="border-t border-gray-700 mt-1">
-          <a routerLink="/Streaming" (click)="auth($event, '/Streaming')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Streaming</a>
-          <a routerLink="/PictureFraming" (click)="auth($event, '/PictureFraming')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Picture Framing</a>
-          <a routerLink="/OnlineAdvertisement" (click)="auth($event, '/OnlineAdvertisement')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Online Advertisement</a>
-          <a routerLink="/SoundEngineering" (click)="auth($event, '/SoundEngineering')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Sound Engineering</a>
-        </div>
-      </div>
+  <!-- Menu panel -->
+  <div class="relative bg-gray-900 rounded-lg shadow-lg w-11/12 max-w-md p-6 z-50 text-white">
+    <!-- Close button -->
+    <div class="flex justify-end mb-4">
+      <button (click)="toggle = false" class="text-white text-2xl" aria-label="Close menu">✕</button>
     </div>
 
-    <a routerLink="/Portfolio" (click)="auth($event, '/Portfolio')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Portfolio</a>
-    <a routerLink="/Blog" (click)="auth($event, '/Blog')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Blog / News</a>
-    <a routerLink="/Contact" (click)="auth($event, '/Contact')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black">Contact / Book Us</a>
-
-    <!-- ✅ Login / Sign Up link added -->
-    <a routerLink="/auth" (click)="auth($event, '/auth')" class="block px-4 py-2 hover:bg-orange-500 hover:text-black font-medium">Login / Sign Up</a>
-  </nav>
+    <!-- All nav links (no dropdowns on mobile) -->
+    <nav class="flex flex-col space-y-4 text-lg font-medium">
+      <a routerLink="/home" (click)="auth($event, '/home'); toggle=false" class="hover:text-orange-500">Home</a>
+      <a routerLink="/about" (click)="auth($event, '/about'); toggle=false" class="hover:text-orange-500">About Us</a>
+      <a routerLink="/branding" (click)="auth($event, '/branding'); toggle=false" class="hover:text-orange-500">Livestream</a>
+      <a routerLink="/Graphics" (click)="auth($event, '/Graphics'); toggle=false" class="hover:text-orange-500">Graphic Design</a>
+      <a routerLink="/Printing" (click)="auth($event, '/Printing'); toggle=false" class="hover:text-orange-500">Printing</a>
+      <a routerLink="/T-ShirtPrinting" (click)="auth($event, '/T-ShirtPrinting'); toggle=false" class="hover:text-orange-500">T-Shirt Printing</a>
+      <a routerLink="/VideoProductionAndPhotoEditing" (click)="auth($event, '/VideoProductionAndPhotoEditing'); toggle=false" class="hover:text-orange-500">Video Production & Photo Editing</a>
+      <a routerLink="/Streaming" (click)="auth($event, '/Streaming'); toggle=false" class="hover:text-orange-500">Streaming</a>
+      <a routerLink="/PictureFraming" (click)="auth($event, '/PictureFraming'); toggle=false" class="hover:text-orange-500">Picture Framing</a>
+      <a routerLink="/OnlineAdvertisement" (click)="auth($event, '/OnlineAdvertisement'); toggle=false" class="hover:text-orange-500">Online Advertisement</a>
+      <a routerLink="/SoundEngineering" (click)="auth($event, '/SoundEngineering'); toggle=false" class="hover:text-orange-500">Sound Engineering</a>
+      <a routerLink="/Portfolio" (click)="auth($event, '/Portfolio'); toggle=false" class="hover:text-orange-500">Portfolio</a>
+      <a routerLink="/Blog" (click)="auth($event, '/Blog'); toggle=false" class="hover:text-orange-500">Blog / News</a>
+      <a routerLink="/Contact" (click)="auth($event, '/Contact'); toggle=false" class="hover:text-orange-500">Contact / Book Us</a>
+      <a routerLink="/auth" (click)="auth($event, '/auth'); toggle=false" class="hover:text-orange-500">Login / Sign Up</a>
+    </nav>
+  </div>
 </div>
