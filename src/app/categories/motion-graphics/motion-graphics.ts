@@ -15,8 +15,8 @@ export class MotionGraphics {
   mediaItems = [
     {
       type: 'video',
-      src: 'motion6.mp4',
-      title: 'Product Promo Animation',
+      src: 'motionVideo.mp4',
+      title: 'Motion Design ',
       description: 'A dynamic animation showcasing a product launch.'
     },
     {
