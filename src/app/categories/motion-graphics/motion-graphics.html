@@ -12,20 +12,27 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     <!-- Loop through media -->
     <div *ngFor="let media of mediaItems"
-         class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition transform cursor-pointer"
-         (click)="media.type==='image' ? openImage(media.src) : null">
+         class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition transform relative">
 
       <!-- Video -->
       <ng-container *ngIf="media.type==='video'">
-        <video autoplay loop muted playsinline class="w-full h-64 object-cover">
+        <video #videoPlayer autoplay loop muted playsinline class="w-full h-64 object-cover">
           <source [src]="media.src" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+
+        <!-- Mute/Unmute Button -->
+        <button (click)="toggleMute(videoPlayer, $event)"
+                class="absolute bottom-3 right-3 bg-black bg-opacity-60 text-white px-3 py-1 rounded text-xs hover:bg-opacity-80">
+          {{ videoPlayer?.muted ? 'Unmute' : 'Mute' }}
+        </button>
       </ng-container>
 
       <!-- Image -->
       <ng-container *ngIf="media.type==='image'">
-        <img [src]="media.src" [alt]="media.title" class="w-full h-64 object-cover">
+        <img [src]="media.src" [alt]="media.title"
+             class="w-full h-64 object-cover cursor-pointer"
+             (click)="openImage(media.src)">
       </ng-container>
 
       <div class="p-4 text-center">
@@ -85,7 +92,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- Lightbox Modal -->
 <div *ngIf="selectedImage"

@@ -12,11 +12,12 @@ export class MotionGraphics {
 
   selectedImage: string | null = null;
 
+  // Media items (images + videos)
   mediaItems = [
     {
       type: 'video',
       src: 'motionVideo.mp4',
-      title: 'Motion Design ',
+      title: 'Motion Design',
       description: 'A dynamic animation showcasing a product launch.'
     },
     {
@@ -69,24 +70,32 @@ export class MotionGraphics {
     }
   ];
 
+  // Event items
   eventItems = [
-  { src: 'event1.jpg', title: 'Event 1', description: 'Highlights from Event 1' },
-  { src: 'event2.jpg', title: 'Event 2', description: 'Highlights from Event 2' },
-  { src: 'assets/event3.jpg', title: 'Event 3', description: 'Highlights from Event 3' },
-  // add more events here
-];
+    { src: 'event1.jpg', title: 'Event 1', description: 'Highlights from Event 1' },
+    { src: 'event2.jpg', title: 'Event 2', description: 'Highlights from Event 2' },
+    { src: 'assets/event3.jpg', title: 'Event 3', description: 'Highlights from Event 3' },
+  ];
 
+  // Label items
   labelItems = [
-  { src: 'label1.jpg', title: 'Label 1', description: 'Custom Label Design 1' },
-  { src: 'assets/label2.jpg', title: 'Label 2', description: 'Custom Label Design 2' },
-  { src: 'assets/label3.jpg', title: 'Label 3', description: 'Custom Label Design 3' },
-  // Add more labels here
-];
+    { src: 'label1.jpg', title: 'Label 1', description: 'Custom Label Design 1' },
+    { src: 'assets/label2.jpg', title: 'Label 2', description: 'Custom Label Design 2' },
+    { src: 'assets/label3.jpg', title: 'Label 3', description: 'Custom Label Design 3' },
+  ];
 
+  // Toggle video mute/unmute
+  toggleMute(video: HTMLVideoElement, event: Event) {
+    event.stopPropagation(); // prevents triggering parent click handlers
+    video.muted = !video.muted;
+  }
+
+  // Open image in modal
   openImage(image: string) {
     this.selectedImage = image;
   }
 
+  // Close modal
   closeImage() {
     this.selectedImage = null;
   }
